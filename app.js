@@ -42,18 +42,18 @@ app.get('/lotto', (req, res) =>{
     for(let i = 0; i < userInput.length; i++){
         for(let j = 0; j < lottoNumbers.length; j++){
             if(userInput[i] === lottoNumbers[j]){
-                scoreCount += 1
+                scoreCount++
             }
         }
     }
     if(scoreCount < 4){
-        res.send(`Sorry you did not win! ${scoreCount}`)
+        res.send(`Sorry you did not win! ${scoreCount} ${lottoNumbers}`)
     } 
     else if(scoreCount === 5){
-        res.send(`Congratulations, you win a free ticket ${lottoNumbers}`)
+        res.send(`Congratulations, you win a free ticket ${scoreCount} ${lottoNumbers}`)
     }
     else if(scoreCount === 6){
-        res.send(`Congratulations! You win $100! ${lottoNumbers}`)
+        res.send(`Congratulations! You win $100! ${scoreCount} ${lottoNumbers}`)
     }
 })
 app.listen(8000, () =>{
